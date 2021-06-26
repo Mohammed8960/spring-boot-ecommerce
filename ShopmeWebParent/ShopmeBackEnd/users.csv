@@ -1,0 +1,25 @@
+No,E-mail,First Name,Last Name,Password,Roles,Enabled,Photos
+1,nam@codejava.net,Nam,Ha Minh,nam2020,Admin,TRUE,namhm.png
+2,kanna.allada@gmail.com,Allada,Pavan,allada2020,Admin,TRUE,Allada Pavan.png
+3,aecllc.bnk@gmail.com,Bruce,Kitchell,bruce2020,Admin,FALSE,Bruce Kitchell.png
+4,muhammad.evran13@gmail.com,Muhammad,Evran,muhammad2020,Editor,TRUE,Muhammad Evran.png
+5,kent.hervey8@gmail.com,Kent,Hervey,kent2020,"Editor, Assistant",TRUE,KentHervey.png
+6,alfredephraim26@gmail.com,Alfred,Ephraim,alfred2020,Editor,FALSE,Alfred.png
+7,nathihsa@gmail.com,Nathi,Sangweni,nathi2020,Editor,TRUE,Nathi_Sangweni.png
+8,ammanollashirisha2020@gmail.com,Ammanolla,Shirisha,amma2020,Editor,TRUE,Ammanolla.png
+9,bfeeny238@hotmail.com,Bill,Feeny,billfeeny2020,Salesperson,TRUE,Bill Feeny.png
+10,redsantosph@gmail.com,Frederick,delos Santos,frederick2020,Salesperson,TRUE,Frederick Santos.png
+11,ro_anamaria@mail.ru,Ana ,Maria,anamaria2020,"Editor, Salesperson",TRUE,Anna Maria.jpg
+12,maytassatya@hotmail.com,Satya,Narayana,satya2020,Salesperson,FALSE,Satya Narayana.png
+13,matthewefoli@gmail.com,Matthew,Efoli,matthew2020,Salesperson,TRUE,Matthew.png
+14,davekumara2@gmail.com,Dave ,Kumar,dave2020,"Shipper, Assistant",TRUE,Dave Kumar.png
+15,jackkbruce@yahoo.com,Jack,Bruce,jack2020,"Shipper, Editor",TRUE,Jack Bruce.png
+16,zirri.mohamed@gmail.com,Mohamed ,Zirri,mohamed2020,Shipper,TRUE,Mohamed Zirri.jpg
+17,mk.majumdar009@hotmail.com,Mithun,Kumar Majumdar,mithun2020,Shipper,FALSE,Mithun Kumar Majumdar.png
+18,aliraza.arain.28@gmail.com,Ali,Raza,ali2020,"Shipper, Editor",TRUE,Ali Raza.png
+19,isaachenry2877@gmail.com,Isaac ,Henry,isaac2020,"Assistant, Salesperson",TRUE,Isaac Henry.jpg
+20,s.stasovska82@hotmail.com,Svetlana,Stasovska,svetlana2020,"Assistant, Editor, Salesperson",TRUE,Svetlana Stasovska.png
+21,mikegates2012@gmail.com,Mike,Gates,mike2020,Assistant,TRUE,Mike Gates.png
+22,pedroquintero67@gmail.com,Pedro,Quintero,pedro2020,Assistant,FALSE,Pedro Quintero.png
+23,amina.elshal2@yahoo.com,Amina,Elshal,amina2020,Assistant,TRUE,Amina Elshal.png
+,,,,,,,
