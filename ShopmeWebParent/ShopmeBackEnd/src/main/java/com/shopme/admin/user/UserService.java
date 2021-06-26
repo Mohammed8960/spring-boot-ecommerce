@@ -10,7 +10,10 @@ import org.springframework.stereotype.Service;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
 
+import javax.transaction.Transactional;
+
 @Service
+@Transactional
 public class UserService {
 
     @Autowired
@@ -85,7 +88,10 @@ public class UserService {
         if (countById == null || countById == 0) {
             throw new UserNotFoundException("Could not find any user with ID " + id);
         }
-
         userRepo.deleteById(id);
+    }
+
+    public void updateUserEnabledStatus(Integer id, boolean enabled) {
+        userRepo.updateEnabledStatus(id, enabled);
     }
 }
