@@ -1,7 +1,10 @@
 package com.shopme.admin.user;
 
+
 import java.util.List;
 import java.util.NoSuchElementException;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -9,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
-
-import javax.transaction.Transactional;
 
 @Service
 @Transactional
@@ -33,7 +34,7 @@ public class UserService {
         return (List<Role>) roleRepo.findAll();
     }
 
-    public void save(User user) {
+    public User save(User user) {
         boolean isUpdatingUser = (user.getId() != null);
 
         if (isUpdatingUser) {
@@ -49,7 +50,7 @@ public class UserService {
             encodePassword(user);
         }
 
-        userRepo.save(user);
+        return userRepo.save(user);
     }
 
     private void encodePassword(User user) {
@@ -88,6 +89,7 @@ public class UserService {
         if (countById == null || countById == 0) {
             throw new UserNotFoundException("Could not find any user with ID " + id);
         }
+
         userRepo.deleteById(id);
     }
 
