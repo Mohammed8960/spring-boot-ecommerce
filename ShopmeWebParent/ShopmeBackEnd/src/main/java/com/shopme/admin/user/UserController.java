@@ -1,4 +1,5 @@
 package com.shopme.admin.user;
+
 import java.io.IOException;
 import java.util.List;
 
@@ -18,6 +19,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.shopme.admin.FileUploadUtil;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
+
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 public class UserController {
@@ -43,7 +46,7 @@ public class UserController {
 
         List<User> listUsers = page.getContent();
 
-        long startCount = (long) (pageNum - 1) * UserService.USERS_PER_PAGE + 1;
+        long startCount = (pageNum - 1) * UserService.USERS_PER_PAGE + 1;
         long endCount = startCount + UserService.USERS_PER_PAGE - 1;
         if (endCount > page.getTotalElements()) {
             endCount = page.getTotalElements();
@@ -102,7 +105,12 @@ public class UserController {
 
         redirectAttributes.addFlashAttribute("message", "The user has been saved successfully.");
 
-        return "redirect:/users";
+        return getRedirectURLtoAffectedUser(user);
+    }
+
+    private String getRedirectURLtoAffectedUser(User user) {
+        String firstPartOfEmail = user.getEmail().split("@")[0];
+        return "redirect:/users/page/1?sortField=id&sortDir=asc&keyword=" + firstPartOfEmail;
     }
 
     @GetMapping("/users/edit/{id}")
@@ -148,5 +156,12 @@ public class UserController {
         redirectAttributes.addFlashAttribute("message", message);
 
         return "redirect:/users";
+    }
+
+    @GetMapping("/users/export/csv")
+    public void exportToCSV(HttpServletResponse response) throws IOException {
+        List<User> listUsers = service.listAll();
+        UserCsvExporter exporter = new UserCsvExporter();
+        exporter.export(listUsers, response);
     }
 }
