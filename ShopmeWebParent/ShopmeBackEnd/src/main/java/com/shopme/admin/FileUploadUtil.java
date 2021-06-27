@@ -1,5 +1,6 @@
 package com.shopme.admin;
 
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -7,14 +8,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-import org.springframework.core.io.FileSystemResource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploadUtil {
+    private static final Logger LOGGER = LoggerFactory.getLogger(FileUploadUtil.class);
 
     public static void saveFile(String uploadDir, String fileName,
                                 MultipartFile multipartFile) throws IOException {
-        Path uploadPath = Paths.get("ShopmeWebParent/ShopmeBackEnd/" + uploadDir);
+        Path uploadPath = Paths.get(uploadDir);
 
         if (!Files.exists(uploadPath)) {
             Files.createDirectories(uploadPath);
@@ -37,12 +40,14 @@ public class FileUploadUtil {
                     try {
                         Files.delete(file);
                     } catch (IOException ex) {
-                        System.out.println("Could not delete file: " + file);
+                        LOGGER.error("Could not delete file: " + file);
+//						System.out.println("Could not delete file: " + file);
                     }
                 }
             });
         } catch (IOException ex) {
-            System.out.println("Could not list directory: " + dirPath);
+            LOGGER.error("Could not list directory: " + dirPath);
+//			System.out.println("Could not list directory: " + dirPath);
         }
     }
 }
