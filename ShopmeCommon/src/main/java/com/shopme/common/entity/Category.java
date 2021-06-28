@@ -160,4 +160,15 @@ public class Category {
 
         return "/category-images/" + this.id + "/" + this.image;
     }
+
+    public boolean isHasChildren() {
+        return hasChildren;
+    }
+
+    public void setHasChildren(boolean hasChildren) {
+        this.hasChildren = hasChildren;
+    }
+
+    @Transient
+    private boolean hasChildren;
 }

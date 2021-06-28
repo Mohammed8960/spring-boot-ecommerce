@@ -111,4 +111,6 @@ public class CategoryRepositoryTests {
         assertThat(category).isNotNull();
         assertThat(category.getAlias()).isEqualTo(alias);
     }
+
+
 }
