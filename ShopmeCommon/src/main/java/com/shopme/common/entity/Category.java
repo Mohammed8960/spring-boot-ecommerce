@@ -1,6 +1,5 @@
 package com.shopme.common.entity;
 
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -90,6 +89,13 @@ public class Category {
     public Category(String name, Category parent) {
         this(name);
         this.parent = parent;
+    }
+
+    public Category(Integer id, String name, String alias) {
+        super();
+        this.id = id;
+        this.name = name;
+        this.alias = alias;
     }
 
     public Integer getId() {
