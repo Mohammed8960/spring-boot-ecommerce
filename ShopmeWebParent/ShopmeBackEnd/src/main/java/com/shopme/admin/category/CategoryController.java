@@ -1,5 +1,6 @@
 package com.shopme.admin.category;
 
+
 import java.io.IOException;
 import java.util.List;
 
@@ -34,10 +35,9 @@ public class CategoryController {
                              @Param("sortDir") String sortDir,
                              @Param("keyword") String keyword,
                              Model model) {
-        if (sortDir ==  null || sortDir.isEmpty()) {
+        if (sortDir == null || sortDir.isEmpty()) {
             sortDir = "asc";
         }
-
         CategoryPageInfo pageInfo = new CategoryPageInfo();
         List<Category> listCategories = service.listByPage(pageInfo, pageNum, sortDir, keyword);
 
