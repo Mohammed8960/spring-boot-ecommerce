@@ -1,8 +1,9 @@
 package com.shopme.admin.category;
 
-
 import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
@@ -17,7 +18,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.shopme.admin.FileUploadUtil;
-import com.shopme.admin.user.UserService;
 import com.shopme.common.entity.Category;
 
 @Controller
@@ -35,9 +35,10 @@ public class CategoryController {
                              @Param("sortDir") String sortDir,
                              @Param("keyword") String keyword,
                              Model model) {
-        if (sortDir == null || sortDir.isEmpty()) {
+        if (sortDir ==  null || sortDir.isEmpty()) {
             sortDir = "asc";
         }
+
         CategoryPageInfo pageInfo = new CategoryPageInfo();
         List<Category> listCategories = service.listByPage(pageInfo, pageNum, sortDir, keyword);
 
@@ -141,5 +142,12 @@ public class CategoryController {
         }
 
         return "redirect:/categories";
+    }
+
+    @GetMapping("/categories/export/csv")
+    public void exportToCSV(HttpServletResponse response) throws IOException {
+        List<Category> listCategories = service.listCategoriesUsedInForm();
+        CategoryCsvExporter exporter = new CategoryCsvExporter();
+        exporter.export(listCategories, response);
     }
 }
